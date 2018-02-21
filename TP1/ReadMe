@@ -7,10 +7,11 @@ Oui / Non / Ne sait pas.
 - Qui peut ajouter une proposition ?
 Personne.
 - Combien de temps durera le vote ?
-
+L'owner décide de la durée du vote par la fonction "setVotingTime".
 - Comment seront calculés les résultats ?
 Comptage du nombre de votes pour chaque proposition.
 - Peut-on faire des délégations ? Comment ?
 Non, on ne peut pas faire de délégations.
 - Quelles informations a-t-on sur les votants ? Comment s'assure-t-on que chacun ne vote que le nombre de fois autorisé ?
-
+On possède l'adresse de chaque votant et si il a déjà voté ou non.
+On s'assure que chaque votant ne vote qu'une seule fois grâce au mapping.
