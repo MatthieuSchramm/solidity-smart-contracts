@@ -64,7 +64,7 @@ contract EIP20 is EIP20Interface {
     uint8 public decimals;                //How many decimals to show.
     string public symbol;                 //An identifier: eg SBX
     
-    address public owner= msg.sender;     //definition of owner
+    address public owner;
     
     function EIP20(
         uint256 _initialAmount,
@@ -72,6 +72,7 @@ contract EIP20 is EIP20Interface {
         uint8 _decimalUnits,
         string _tokenSymbol
     ) public {
+        owner = msg.sender;
         balances[msg.sender] = _initialAmount;               // Give the creator all initial tokens
         totalSupply = _initialAmount;                        // Update total supply
         name = _tokenName;                                   // Set the name for display purposes
