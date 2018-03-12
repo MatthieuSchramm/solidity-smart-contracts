@@ -26,7 +26,7 @@ contract ProofOfExistence {
   function checkDocument(string document) constant returns (bool)
   {
     var proof = proofFor(document);
-    return hasProof(proof);
+    return Proved(proof);
   }
   
   //returns true if the proof is stored
