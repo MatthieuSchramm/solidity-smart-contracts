@@ -109,14 +109,8 @@ contract Referendum {
         }
     }
     
-    modifier isowner()
-    {
-        require(msg.sender == owner);
-        _;
-    }
-    
     // Fonction kill
-    function kill() isowner() public
+    function kill() ownerOnly() public
     {
         if(msg.sender==owner) selfdestruct(owner);
     }
