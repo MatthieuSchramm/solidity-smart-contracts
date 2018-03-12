@@ -108,5 +108,17 @@ contract Referendum {
            proposals[index].adopted = true; 
         }
     }
+    
+    modifier isowner()
+    {
+        require(msg.sender == owner);
+        _;
+    }
+    
+    // Fonction kill
+    function kill() isowner() public
+    {
+        if(msg.sender==owner) selfdestruct(owner);
+    }
  
 }
