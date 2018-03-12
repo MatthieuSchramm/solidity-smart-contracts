@@ -1,6 +1,12 @@
 - Quelle sera sa valeur ?
+Notre token sera utilisé comme une monnaie de fidélité (points fidelité)
 
 - Qui l'émettra ? En quelle quantité ? Sera-t-il possible d'un créer de nouveaux ? D'en détruire ?
+C'est l'enseigne qui émet les tokens aux clients proportionnellement aux achats effectués par ce dernier.
+Il sera possible d'en créer de nouveaux car la quantité n'est a priori pas limitée.
+Egalement, on pourra détruire les tokens en cas d'erreur de transaction vers un client.
 
 - Faudra-t-il être authentifié pour en posséder ? pour en transmettre ? Si oui, par qui ?
+Il faudra créer au préalable un compte client auprès des employés de l'enseigne.
+La trasmission de tokens entre clients n'est pas autorisée.
 
