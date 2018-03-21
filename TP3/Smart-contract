@@ -1,37 +1,24 @@
 pragma solidity ^0.4.15;
 
-contract ProofOfExistence {
-  mapping (bytes32 => bool) private proofs;
- 
- //store a proof of existence in the contract
-  function storeProof(bytes32 proof)
+contract StoreHash{
+    
+  uint private doc_hash;
+  address public owner;     // Il n'y a pas forcément besoin d'un owner
+  
+  function StoreHash(uint hash)
   {
-    proofs[proof] = true;
+      owner = msg.sender;
+      doc_hash = hash;
   }
   
-  //compute and store the proof for a document
-  function notarize(string document)
-  {
-    var proof = proofFor(document);
-    storeProof(proof);
-  }
-  
-  //function to get a document's SHA256
-  function proofFor(string document) constant returns (bytes32)
-  {
-    return sha256(document);
-  }
-  
-  //verify whether the document is notarized or not
-  function checkDocument(string document) constant returns (bool)
-  {
-    var proof = proofFor(document);
-    return Proved(proof);
-  }
-  
-  //returns true if the proof is stored
-  function Proved(bytes32 proof) constant returns(bool)
-  {
-    return proofs[proof];
-  }
+  modifier isowner()
+    {
+        require(msg.sender == owner);
+        _;
+    }
+    
+  function kill() isowner() public
+    {
+        if(msg.sender==owner) selfdestruct(owner);
+    }
 }
